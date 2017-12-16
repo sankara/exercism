@@ -1,16 +1,9 @@
 (ns series)
 
 (defn slices [string n]
-  (loop [s string
-         series []]
-    (cond
-      (<= n 0) [""]
-      (empty? s) series
-      :else (let [substr (apply str (take n s))
-                  series (if (= n (count substr))
-                           (conj series substr)
-                           series)]
-              (recur (rest s) series)))))
+  (if (<= n 0)
+    [""]
+    (map clojure.string/join (partition n 1 string))))
 
 ;; (slices "49142" 3)
 ;; (slices "49142" 4)
