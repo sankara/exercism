@@ -31,7 +31,7 @@
   ([n]
    (sing n 0))
   ([start end]
-   (clojure.string/join "\n" (map verse (range start (- end 1) -1)))))
+   (clojure.string/join "\n" (map verse (range start (dec end) -1)))))
 
 ;; (sing 8 6)
 ;; (sing 3)
